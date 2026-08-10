@@ -13,6 +13,8 @@ CREATE TABLE assignments (
 
     description TEXT,
 
+    max_marks DECIMAL(5,2) NOT NULL,
+
     teacher_id VARCHAR(36) NOT NULL,
 
     subject_id VARCHAR(36) NOT NULL,
