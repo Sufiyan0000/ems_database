@@ -1,5 +1,5 @@
 -- ======================================================
--- File       : 02_academic_years.sql
+-- File       : academic_years.sql
 -- Module     : Academic Years
 -- Description: Stores academic sessions of a school
 -- ======================================================

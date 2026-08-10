@@ -1,5 +1,5 @@
 -- ======================================================
--- File       : 01_school.sql
+-- File       : school.sql
 -- Module     : School
 -- Description: Stores school information
 -- ======================================================
