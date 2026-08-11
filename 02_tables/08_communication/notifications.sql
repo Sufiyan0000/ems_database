@@ -31,6 +31,32 @@ CREATE TABLE notifications (
         'Failed'
     ) NOT NULL DEFAULT 'Pending',
 
+    notification_type ENUM(
+    'Announcement',
+    'Fee Reminder',
+    'Attendance',
+    'Exam',
+    'Assignment',
+    'Library',
+    'Transport',
+    'General'
+    ) NOT NULL,
+
+    channel ENUM(
+    'In-App',
+    'Email',
+    'SMS',
+    'Push'
+    ) NOT NULL,
+
+    sender_type ENUM(
+    'Teacher',
+    'School Admin',
+    'Super Admin'
+    ),
+
+    sender_id VARCHAR(36),
+
     read_at DATETIME,
 
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
