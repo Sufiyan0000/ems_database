@@ -1,9 +1,10 @@
 -- ======================================================
--- File       : assignments_constraints.sql
--- Module     : Academics
--- Description: Foreign key constraints for assignments
+-- File        : assignments_constraints.sql
+-- Module      : Academics
+-- Description : Foreign key and additional constraints for assignments
 -- ======================================================
 
+-- Foreign Keys
 ALTER TABLE assignments
 ADD CONSTRAINT fk_assignments_teacher
 FOREIGN KEY (teacher_id)
@@ -37,8 +38,11 @@ ADD CONSTRAINT fk_assignments_section
 FOREIGN KEY (section_id)
 REFERENCES sections(section_id)
 ON UPDATE CASCADE
-ON DELETE RESTRICT
+ON DELETE RESTRICT;
 
+-- Unique Constraint
+ALTER TABLE assignments
+ADD CONSTRAINT uq_assignments_unique
 UNIQUE (
     teacher_id,
     subject_id,
@@ -46,9 +50,11 @@ UNIQUE (
     section_id,
     title,
     due_date
-)
+);
 
-status ENUM(
+-- Status Column
+ALTER TABLE assignments
+ADD COLUMN status ENUM(
     'Draft',
     'Published',
     'Closed',
