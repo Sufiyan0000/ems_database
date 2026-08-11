@@ -15,6 +15,12 @@ CREATE TABLE fee_categories (
 
     description VARCHAR(255),
 
+    category_code VARCHAR(20)
+
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+
+    is_taxable BOOLEAN DEFAULT FALSE,
+
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     updated_at DATETIME NOT NULL
