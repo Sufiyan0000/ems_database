@@ -8,6 +8,8 @@ CREATE TABLE fee_payment (
 
     fee_payment_id VARCHAR(36) PRIMARY KEY,
 
+    academic_year_id VARCHAR(36) NOT NULL
+
     student_id VARCHAR(36) NOT NULL,
 
     fee_category_id VARCHAR(36) NOT NULL,
@@ -31,6 +33,8 @@ CREATE TABLE fee_payment (
         'Bank Transfer',
         'Cheque'
     ) NOT NULL,
+
+    collected_by VARCHAR(36)
 
     transaction_id VARCHAR(100),
 
