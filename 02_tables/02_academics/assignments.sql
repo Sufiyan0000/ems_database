@@ -15,6 +15,8 @@ CREATE TABLE assignments (
 
     max_marks DECIMAL(5,2) NOT NULL,
 
+    academic_year_id VARCHAR(36) NOT NULL,
+
     teacher_id VARCHAR(36) NOT NULL,
 
     subject_id VARCHAR(36) NOT NULL,
