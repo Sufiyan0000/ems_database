@@ -1,11 +1,20 @@
--- ======================================
--- EMS Database
--- Version : 1.0
--- Author  : Muhammad Sufiyan Ali
--- ======================================
+-- ======================================================
+-- File       : 01_database.sql
+-- Project    : School Management System (EMS)
+-- Description: Creates the project database
+-- Author     : Muhammad Sufiyan
+-- ======================================================
 
-CREATE DATABASE IF NOT EXISTS ems_db
+-- ======================================================
+-- Create Database
+-- ======================================================
+
+CREATE DATABASE IF NOT EXISTS school_management_system
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_unicode_ci;
 
-USE ems_db;
+-- ======================================================
+-- Use Database
+-- ======================================================
+
+USE school_management_system;
