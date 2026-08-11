@@ -16,6 +16,8 @@ CREATE TABLE teachers (
 
     last_name VARCHAR(100) NOT NULL,
 
+    dob DATE NOT NULL,
+
     email VARCHAR(255) NOT NULL,
 
     phone VARCHAR(20) NOT NULL,
@@ -27,6 +29,15 @@ CREATE TABLE teachers (
     address VARCHAR(255),
 
     profile_image VARCHAR(500),
+
+    department VARCHAR(100),
+    
+    status ENUM(
+    'Active',
+    'On Leave',
+    'Resigned',
+    'Retired'
+    ) DEFAULT 'Active',
 
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
