@@ -10,11 +10,13 @@ CREATE TABLE id_cards (
 
     school_id VARCHAR(36) NOT NULL,
 
-    student_id VARCHAR(36),
+    owner_type ENUM(
+        'Student',
+        'Staff',
+        'Parent'
+    ) NOT NULL,
 
-    teacher_id VARCHAR(36),
-
-    parent_id VARCHAR(36),
+    owner_id VARCHAR(36) NOT NULL,
 
     card_number VARCHAR(50) NOT NULL,
 
@@ -22,11 +24,13 @@ CREATE TABLE id_cards (
 
     expiry_date DATE,
 
+    version INT DEFAULT 1,
+
     qr_code VARCHAR(255),
 
     barcode VARCHAR(255),
 
-    template_name VARCHAR(100) NOT NULL,
+    card_template VARCHAR(100) NOT NULL,
 
     printed_at DATETIME,
 
