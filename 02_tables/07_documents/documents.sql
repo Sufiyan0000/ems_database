@@ -1,7 +1,8 @@
 -- ======================================================
 -- File       : documents.sql
 -- Module     : Documents
--- Description: Stores student document records
+-- Description: Stores uploaded documents for students,
+--              teachers, parents and other entities
 -- ======================================================
 
 CREATE TABLE documents (
@@ -10,9 +11,13 @@ CREATE TABLE documents (
 
     school_id VARCHAR(36) NOT NULL,
 
-    student_id VARCHAR(36) NOT NULL,
+    document_owner_type ENUM(
+        'Student',
+        'Teacher',
+        'Parent'
+    ) NOT NULL,
 
-    document_name VARCHAR(255) NOT NULL,
+    document_owner_id VARCHAR(36) NOT NULL,
 
     document_type ENUM(
         'Aadhaar',
@@ -21,18 +26,38 @@ CREATE TABLE documents (
         'Marksheet',
         'Passport',
         'Photo',
+        'Driving License',
+        'PAN',
         'Other'
     ) NOT NULL,
 
+    document_name VARCHAR(255) NOT NULL,
+
     file_url VARCHAR(500) NOT NULL,
 
-    status ENUM(
+    file_size BIGINT NOT NULL,
+
+    file_format VARCHAR(20) NOT NULL,
+
+    uploaded_by_type ENUM(
+        'Student',
+        'Teacher',
+        'Parent',
+        'School Admin',
+        'Super Admin'
+    ) NOT NULL,
+
+    uploaded_by_id VARCHAR(36) NOT NULL,
+
+    uploaded_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    verification_status ENUM(
         'Pending',
         'Verified',
         'Rejected'
     ) NOT NULL DEFAULT 'Pending',
 
-    uploaded_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    remarks VARCHAR(255),
 
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
