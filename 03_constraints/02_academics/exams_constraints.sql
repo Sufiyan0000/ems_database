@@ -25,6 +25,8 @@ REFERENCES academic_years(academic_year_id)
 ON UPDATE CASCADE
 ON DELETE RESTRICT
 
+ALTER TABLE exams
+ADD CONSTRAINT uq_exams_exam_name_class_section_academic_year
 UNIQUE (
     exam_name,
     class_id,
